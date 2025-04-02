@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | Algerian MicroJobs</title>
+</head>
+<body>
+  <script type="module">
+    import BaseLayout from '../layouts/BaseLayout.js';
+    document.body.innerHTML = BaseLayout();
+    
+    const main = document.querySelector('main');
+    main.innerHTML = `
+      <section class="py-16">
+        <div class="container mx-auto px-4 max-w-md">
+          <div class="card p-8">
+            <h1 class="text-3xl font-bold text-center mb-8">Create Account</h1>
+            
+            <form id="registerForm" class="space-y-6">
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label for="firstName" class="block mb-2 font-medium">First Name</label>
+                  <input type="text" id="firstName" required
+                         class="input-field" placeholder="John">
+                </div>
+                <div>
+                  <label for="lastName" class="block mb-2 font-medium">Last Name</label>
+                  <input type="text" id="lastName" required
+                         class="input-field" placeholder="Doe">
+                </div>
+              </div>
+              
+              <div>
+                <label for="email" class="block mb-2 font-medium">Email</label>
+                <input type="email" id="email" required
+                       class="input-field" placeholder="your@email.com">
+              </div>
+              
+              <div>
+                <label for="password" class="block mb-2 font-medium">Password</label>
+                <input type="password" id="password" required minlength="8"
+                       class="input-field" placeholder="••••••••">
+                <p class="text-xs text-gray-500 mt-1">Minimum 8 characters</p>
+              </div>
+              
+              <div>
+                <label for="userType" class="block mb-2 font-medium">I want to:</label>
+                <select id="userType" class="input-field">
+                  <option value="freelancer">Offer Services (Freelancer)</option>
+                  <option value="client">Hire Professionals (Client)</option>
+                </select>
+              </div>
+              
+              <div class="flex items-start">
+                <input type="checkbox" id="terms" required
+                       class="mt-1 mr-2">
+                <label for="terms" class="text-sm">
+                  I agree to the <a href="/terms" class="text-accent hover:underline">Terms of Service</a> and 
+                  <a href="/privacy" class="text-accent hover:underline">Privacy Policy</a>
+                </label>
+              </div>
+              
+              <button type="submit" class="btn-primary w-full py-3">
+                Create Account
+              </button>
+            </form>
+            
+            <div class="mt-6 text-center">
+              <p class="text-gray-600 dark:text-gray-300">
+                Already have an account? 
+                <a href="/login" class="text-accent font-medium hover:underline">Sign in</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    `;
+
+    document.getElementById('registerForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Add registration logic here
+      alert('Registration functionality will be implemented next');
+    });
+  </script>
+</body>
+</html>
