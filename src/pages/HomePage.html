@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algerian MicroJobs - Find Freelance Services</title>
+  <meta name="description" content="Platform connecting Algerian freelancers and clients for micro-jobs">
+</head>
+<body>
+  <script type="module">
+    import BaseLayout from '../layouts/BaseLayout.js';
+    document.body.innerHTML = BaseLayout();
+    
+    // Homepage content
+    const main = document.querySelector('main');
+    main.innerHTML = `
+      <!-- Hero Section -->
+      <section class="bg-gradient-to-r from-primary to-accent text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">Find & Offer Services in Algeria</h1>
+          <p class="text-xl mb-8">Connect with skilled professionals or monetize your talents</p>
+          <div class="max-w-md mx-auto relative">
+            <input type="text" placeholder="What service are you looking for?" 
+                   class="w-full py-4 px-6 rounded-full text-gray-800 focus:outline-none">
+            <button class="absolute right-2 top-2 bg-secondary text-white p-2 rounded-full">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories Section -->
+      <section id="services" class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-12">Popular Categories</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            ${['Design', 'Programming', 'Writing', 'Translation', 'Marketing', 'Video Editing', 'Music', 'Consulting']
+              .map(category => `
+              <div class="card p-6 text-center hover:scale-105 transition-transform">
+                <i class="fas fa-${getCategoryIcon(category)} text-4xl mb-4 text-accent"></i>
+                <h3 class="text-xl font-semibold">${category}</h3>
+                <p class="text-gray-600 dark:text-gray-300 mt-2">50+ services</p>
+              </div>
+              `).join('')}
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works -->
+      <section id="how-it-works" class="py-16">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="text-center">
+              <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl font-bold">1</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Post a Job</h3>
+              <p>Describe your project and set your budget in DZD</p>
+            </div>
+            <div class="text-center">
+              <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl font-bold">2</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Get Offers</h3>
+              <p>Receive proposals from qualified freelancers</p>
+            </div>
+            <div class="text-center">
+              <div class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span class="text-2xl font-bold">3</span>
+              </div>
+              <h3 class="text-xl font-semibold mb-2">Complete Job</h3>
+              <p>Release payment when you're satisfied with the work</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-3xl font-bold mb-6">Ready to get started?</h2>
+          <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="/register?type=client" class="btn-secondary px-8 py-3">Hire a Freelancer</a>
+            <a href="/register?type=freelancer" class="bg-white text-primary px-8 py-3 rounded font-bold hover:bg-gray-100 transition-colors">
+              Offer Services
+            </a>
+          </div>
+        </div>
+      </section>
+    `;
+
+    function getCategoryIcon(category) {
+      const icons = {
+        'Design': 'paint-brush',
+        'Programming': 'code',
+        'Writing': 'pen-fancy',
+        'Translation': 'language',
+        'Marketing': 'bullhorn',
+        'Video Editing': 'film',
+        'Music': 'music',
+        'Consulting': 'user-tie'
+      };
+      return icons[category] || 'briefcase';
+    }
+  </script>
+</body>
+</html>
