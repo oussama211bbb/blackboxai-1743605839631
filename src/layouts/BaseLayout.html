@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Algerian MicroJobs</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2C3E50',
+            secondary: '#E74C3C',
+            accent: '#3498DB'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="../styles/custom.css">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 min-h-full">
+  <div id="app" class="flex flex-col min-h-screen">
+    <script type="module">
+      import NavigationBar from '../components/NavigationBar.js';
+      document.querySelector('nav').innerHTML = NavigationBar();
+    </script>
+    <main class="flex-grow">
+      <!-- Page content will be inserted here -->
+    </main>
+    <footer class="bg-primary text-white p-4">
+      <div class="container mx-auto text-center">
+        <p>© 2023 Algerian MicroJobs - All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+  <script>
+    // Dark mode toggle functionality
+    if (localStorage.getItem('darkMode') === 'true' || 
+        (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  </script>
+</body>
+</html>
